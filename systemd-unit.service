@@ -1,0 +1,15 @@
+#Пример кофига unit-а для systemd, в качестве примера syncthing
+[Unit]
+Description=Syncthing - Open Source Continuous File Synchronization
+Documentation=man:syncthing(1)
+After=network.target
+
+[Service]
+User=ricins
+ExecStart=/usr/bin/syncthing -no-browser -no-restart -logflags=0
+Restart=on-failure
+SuccessExitStatus=1 3 4
+RestartForceExitStatus=3 4
+
+[Install]
+WantedBy=multi-user.target
