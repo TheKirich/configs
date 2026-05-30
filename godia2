@@ -1,0 +1,46 @@
+#!/bin/bash
+cp -f /var/lib/samba/private/krb5.conf /etc/krb5.conf
+
+systemctl enable --now samba
+
+samba-tool group add hq
+
+samba-tool user add hquser1 P@ssw0rd
+samba-tool user add hquser2 P@ssw0rd
+samba-tool user add hquser3 P@ssw0rd
+samba-tool user add hquser4 P@ssw0rd
+samba-tool user add hquser5 P@ssw0rd
+samba-tool user setexpiry hquser1 --noexpiry
+samba-tool user setexpiry hquser2 --noexpiry
+samba-tool user setexpiry hquser3 --noexpiry
+samba-tool user setexpiry hquser4 --noexpiry
+samba-tool user setexpiry hquser5 --noexpiry
+samba-tool group addmembers "hq" hquser1
+samba-tool group addmembers "hq" hquser2
+samba-tool group addmembers "hq" hquser3
+samba-tool group addmembers "hq" hquser4
+samba-tool group addmembers "hq" hquser5
+
+samba-tool group listmembers hq
+klist
+```
+
+#Далее в hq-rtr заходим в конфигурационный файл `/etc/dhcp/dhcpd.conf`
+#меняем здесь:
+#subnet 192.168.200.0 netmask 255.255.255.240 {
+#    option routers                  192.168.200.1;
+#    option subnet-mask              255.255.255.240;
+
+#    option nis-domain               "domain.org";
+#    option domain-name              "au-team.irpo";
+#    option domain-name-servers      192.168.3.2; # [!code ++]
+
+#    range dynamic-bootp 192.168.200.2 192.168.200.7;
+#systemctl restart dhcpd
+
+#далее нужно прописать права для пользователей группы hq
+#roleadd hq wheel
+
+#вставляем в этот файл
+#Cmnd_Alias SHELLCMD = /bin/cat, /bin/grep, /usr/bin/id   
+#WHEEL_USERS ALL=(ALL:ALL) SHELLCMD
