@@ -1,0 +1,16 @@
+#!/bin/bash
+#Аааааа Z Z Z Z, ZOV
+#На машине br-srv
+apt-get install task-samba-dc -y
+
+rm -f  /etc/samba/smb.conf
+rm -rf /var/lib/samba/
+rm -rf /var/cache/samba/
+mkdir -p /var/lib/samba/sysvol
+
+echo search au-team.irpo
+nameserver 127.0.0.1 > /etc/net/ifaces/ens18/resolv.conf
+
+samba-tool domain provision
+
+#пиши 8.8.8.8
