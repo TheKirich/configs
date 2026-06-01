@@ -1,6 +1,4 @@
-#!/bin/bash
-MY_SCRIPT="
-echo server {
+server {
     listen 80;
     server_name web.au-team.irpo;
     location / {
@@ -15,6 +13,4 @@ server {
         proxy_pass http://172.16.2.2:8080;
     }
 }
-"
 
-echo "$MY_SCRIPT" > nginx.sh
