@@ -24,4 +24,4 @@ mariadb -u root -e "EXIT;"
 
 systemctl enable --now httpd2
 
-mariadb -u webc -p webdb < /mnt/web/dump.sql
+mariadb -u webc -p webdb < /mnt/demo/web/dump.sql
