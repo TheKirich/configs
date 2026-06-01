@@ -1,0 +1,25 @@
+#!/bin/bash
+#Не забывай /mnt/demo монтировать, еблан
+
+mount /dev/sr0 /mnt/demo
+
+apt-get install lamp-server -y
+
+cp /mnt/demo/web/index.php /var/www/html/
+cp /mnt/demo/web/logo.png /var/www/html/
+
+sed 's/user/webc/ /var/www/html/index.php
+sed 's/password/P@ssw0rd/ /var/www/html/index.php
+sed 's/db/webdb/ /var/www/html/index.php
+
+systemctl enable --now mariadb
+
+mariadb -u root -e "CREATE DATABASE webdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+mariadb -u root -e "CREATE USER 'webc'@'localhost' IDENTIFIED BY 'P@ssw0rd';"
+mariadb -u root -e "GRANT ALL PRIVILEGES ON webdb.* TO 'webc'@'localhost';"
+mariadb -u root -e "FLUSH PRIVILEGES;"
+mariadb -u root -e "EXIT;"
+
+systemctl enable --now httpd2
+
+mariadb -u webc -p webdb < /mnt/web/dump.sql
