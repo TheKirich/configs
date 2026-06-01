@@ -20,4 +20,5 @@ mariadb -u root -e "CREATE DATABASE webdb CHARACTER SET utf8mb4 COLLATE utf8mb4_
 
 systemctl enable --now httpd2
 
-mariadb -u webc -p webdb < /mnt/demo/web/dump.sql
+#mariadb -u webc -p webdb < /mnt/demo/web/dump.sql
+exit 0
