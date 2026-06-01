@@ -1,6 +1,10 @@
 #!/bin/bash
 #Не забывай /mnt/demo монтировать, еблан
 
+mkdir /mnt/demo
+
+mount /dev/sr0 /mnt/demo
+
 apt-get install lamp-server -y
 
 cp /mnt/demo/web/index.php /var/www/html/
