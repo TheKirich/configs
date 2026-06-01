@@ -8,9 +8,9 @@ apt-get install lamp-server -y
 cp /mnt/demo/web/index.php /var/www/html/
 cp /mnt/demo/web/logo.png /var/www/html/
 
-sed 's/user/webc/ /var/www/html/index.php
-sed 's/password/P@ssw0rd/ /var/www/html/index.php
-sed 's/db/webdb/ /var/www/html/index.php
+sed -i 's/user/webc/' /var/www/html/index.php
+sed -i 's/password/P@ssw0rd/' /var/www/html/index.php
+sed -i 's/db/webdb/' /var/www/html/index.php
 
 systemctl enable --now mariadb
 
