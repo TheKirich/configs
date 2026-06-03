@@ -19,6 +19,8 @@ cp -f /var/lib/samba/private/krb5.conf /etc/krb5.conf
 
 systemctl enable --now samba
 
+systemctl restart samba
+
 samba-tool group add hq
 
 samba-tool user add hquser1 P@ssw0rd
@@ -36,3 +38,5 @@ samba-tool group addmembers hq hquser2
 samba-tool group addmembers hq hquser3
 samba-tool group addmembers hq hquser4
 samba-tool group addmembers hq hquser5
+
+systemctl restart samba
