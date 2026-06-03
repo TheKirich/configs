@@ -1,5 +1,5 @@
 #!/bin/bash
-#Не забывай /mnt/demo монтировать, еблан
+#HQ-SRV
 
 mkdir /mnt/demo
 
