@@ -12,5 +12,3 @@ echo search au-team.irpo > /etc/net/ifaces/ens18/resolv.conf
 echo nameserver 127.0.0.1 >> /etc/net/ifaces/ens18/resolv.conf
 
 samba-tool domain provision
-
-#пиши 8.8.8.8
