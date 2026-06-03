@@ -1,4 +1,4 @@
 #!/bin/bash
-
+roleadd hq wheel
 echo "Cmnd_Alias SHELLCMD = /bin/cat, /bin/grep, /usr/bin/id" >> /etc/sudoers.d/hq  
 echo "WHEEL_USERS ALL=(ALL:ALL) SHELLCMD" >> /etc/sudoers.d/hq  
