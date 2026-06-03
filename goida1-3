@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo Cmnd_Alias SHELLCMD = /bin/cat, /bin/grep, /usr/bin/id >> /etc/sudoers.d/hq  
-echo WHEEL_USERS ALL=(ALL:ALL) SHELLCMD >> /etc/sudoers.d/hq  
+echo "Cmnd_Alias SHELLCMD = /bin/cat, /bin/grep, /usr/bin/id" >> /etc/sudoers.d/hq  
+echo "WHEEL_USERS ALL=(ALL:ALL) SHELLCMD" >> /etc/sudoers.d/hq  
