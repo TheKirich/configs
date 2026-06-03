@@ -31,8 +31,8 @@ samba-tool user setexpiry hquser2 --noexpiry
 samba-tool user setexpiry hquser3 --noexpiry
 samba-tool user setexpiry hquser4 --noexpiry
 samba-tool user setexpiry hquser5 --noexpiry
-samba-tool group addmembers "hq" hquser1
-samba-tool group addmembers "hq" hquser2
-samba-tool group addmembers "hq" hquser3
-samba-tool group addmembers "hq" hquser4
-samba-tool group addmembers "hq" hquser5
+samba-tool group addmembers hq hquser1
+samba-tool group addmembers hq hquser2
+samba-tool group addmembers hq hquser3
+samba-tool group addmembers hq hquser4
+samba-tool group addmembers hq hquser5
