@@ -1,3 +1,5 @@
+# ISP /etc/nginx/sites-available.d/default.conf
+#ln -sf /etc/nginx/sites-available.d/default.conf /etc/nginx/sites-enabled.d/
 server {
     listen 80;
     server_name web.au-team.irpo;
@@ -13,4 +15,3 @@ server {
         proxy_pass http://172.16.2.2:8080;
     }
 }
-
