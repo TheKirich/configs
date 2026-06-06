@@ -1,0 +1,27 @@
+#Пример конфигурации docker copmpose на примере mariadb и самописного сайта
+services:
+  db:
+    container_name: db
+    image: postgres:15-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: testdb3
+      POSTGRES_USER: test3
+      POSTGRES_PASSWORD: P@ssw0rd
+  site:
+    container_name: site
+    image: site:latest
+    restart: always
+    ports:
+      - "8083:8000"
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: testdb3
+      DB_USER: test3
+      DB_PASS: P@ssw0rd
+    depends_on:
+      - database
